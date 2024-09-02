@@ -26,13 +26,11 @@ function startWorker() {
                     const { docId, thumbnail, userId } = JSON.parse(data.element);
                     const formData = new FormData();
                     formData.append('image', thumbnail);
-                    const upload = yield fetch(
                     //@ts-ignore
-                    `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`, {
+                    const upload = yield fetch(`https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`, {
                         method: "POST",
                         body: formData
                     });
-                    throw Error("erorr not 404");
                     const res = yield upload.json();
                     if (!res.success) {
                         throw Error("Couldn't save thumbnail");

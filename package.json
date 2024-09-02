@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "db:migrate": "cd ./worker/ && npx prisma migrate",
+    "db:generate": "cd ./worker/ && npx prisma generate",
+    "db:run": "yarn run db:migrate && yarn run db:generate",
     "install:express": "cd ./express-server/ && npm i",
     "install:worker": "cd ./worker && npm i",
     "install": "npm run install:express && npm run install:express",
+    "install:prod": "npm run install && npm run db:run",
     "build:express": "cd ./express-server/ && tsc",
     "build:worker": "cd ./worker/ && tsc",
     "build": "npm run build:express && npm run build:worker",
