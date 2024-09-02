@@ -1,0 +1,23 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "install:express": "cd ./express-server/ && npm i",
+    "install:worker": "cd ./worker && npm i",
+    "install": "npm run install:express && npm run install:express",
+    "build:express": "cd ./express-server/ && tsc",
+    "build:worker": "cd ./worker/ && tsc",
+    "build": "npm run build:express && npm run build:worker",
+    "start:express": "cd ./express-server/ && node dist/index.js",
+    "start:worker": "cd ./worker/ && node dist/index.js",
+    "start": "concurrently \"npm run start:express\" \"npm run start:worker\"",
+    "start:dev": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
