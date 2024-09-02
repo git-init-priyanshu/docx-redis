@@ -8,7 +8,7 @@
     "db:run": "yarn run db:migrate && yarn run db:generate",
     "install:express": "cd ./express-server/ && npm i",
     "install:worker": "cd ./worker && npm i",
-    "install": "npm run install:express && npm run install:express",
+    "install": "npm i && npm run install:express && npm run install:express",
     "install:prod": "npm run install && npm run db:run",
     "build:express": "cd ./express-server/ && tsc",
     "build:worker": "cd ./worker/ && tsc",
