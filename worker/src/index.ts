@@ -2,7 +2,10 @@ import { createClient } from "redis";
 import { PrismaClient } from "@prisma/client";
 import "dotenv/config"
 
-const client = createClient();
+const client = createClient({
+  //@ts-ignore
+  url: process.env.REDIS_URL || 'redis://127.0.0.1:6379'
+});
 const prisma = new PrismaClient();
 
 async function startWorker() {
